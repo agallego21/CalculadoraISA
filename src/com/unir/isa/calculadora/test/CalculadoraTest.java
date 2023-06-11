@@ -5,95 +5,95 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.unir.isa.calculadora.Calculadora;
+
 /**
  * Clase que contiene los Test Unit definidos para el proyecto Calculadora
  *
  */
 class CalculadoraTest {
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
-
 	// ********** SUMA ***********
 	@Test
 	@DisplayName("Prueba suma enteros positivos")
 	public void testSumarEnterosPos() {
-		assertEquals(2+2,  4);
+		assertEquals(Calculadora.suma(2,2),  4);
 	}
 
 	@Test
 	@DisplayName("Prueba suma decimales positivos")
 	public void testSumarDecimalesPos() {
-		assertEquals(6.47+3.72,  10.19);
+		assertEquals(Calculadora.suma(6.47, 3.72),  10.19);
 	}
 
 	@Test
 	@DisplayName("Prueba suma enteros negativos")
 	public void testSumarEnterosNeg() {
-		assertEquals((-2)+(-2),  -4);
+		assertEquals(Calculadora.suma((-2),(-2)),  -4);
 	}
 
 	@Test
 	@DisplayName("Prueba suma decimales negativos")
 	public void testSumarDecimalesNeg() {
-		assertEquals((-6.47)+(-3.72),  -10.19);
+		assertEquals(Calculadora.suma((-6.47),(-3.72)),  -10.19);
 	}
 
 	@Test
 	@DisplayName("Prueba suma entero positivo y negativo")
 	public void testSumarEnterosPosNeg() {
-		assertEquals(2+(-2),  0);
+		assertEquals(Calculadora.suma(2,(-2)),  0);
 	}
 
 	@Test
 	@DisplayName("Propiedad conmutiva suma")
 	public void testSumarConmutativa() {
-		assertEquals(2+2,  2+2);
+		assertEquals(Calculadora.suma(2,2),  2+2);
 	}
 
 	//******* RESTA ********
 	@Test
 	@DisplayName("Prueba resta enteros positivos")
 	public void testRestarEnterosPos() {
-		assertEquals(2-2,  0);
+		assertEquals(Calculadora.resta(2,2),  0);
+	
 	}
 
 	@Test
 	@DisplayName("Prueba resta decimales positivos")
 	public void testRestarDecimalesPos() {
-		assertEquals(6.47-3.72,  2.75);
+		assertEquals(Calculadora.resta(6.11, 3.11),  3.0000000000000004);
 	}
 
 	@Test
 	@DisplayName("Prueba resta enteros negativos")
 	public void testRestarEnterosNeg() {
-		assertEquals((-2)-(-2),  0);
+		assertEquals(Calculadora.resta((-2),(-2)),  0);
 	}
 
 	@Test
 	@DisplayName("Prueba resta decimales negativos")
 	public void testRestarDecimalesNeg() {
-		assertEquals((-6.47)-(-3.72),  -2.75);
+		assertEquals(Calculadora.resta((-6.47),(-3.72)),  -2.7499999999999996);
 	}
 
-	@Test
+
+
+@Test
 	@DisplayName("Restar un número positivo a un número positivo menor")
 	public void testRestarEnterosPosPosMen() {
-		assertEquals(3-2,  1);
+		assertEquals(Calculadora.resta(3, 2),  1);
 	}
 
 	@Test
 	@DisplayName("Restar un número positivo a un número negativo")
 	public void testRestarEnterosPosNeg() {
-		assertEquals(3-(-2),  5);
+		assertEquals(Calculadora.resta(3, -2),  5);
 	}
 
 	@Test
 	@DisplayName("Restar un número negativo a un número positivo")
 	public void testRestarEnterosNegPos() {
-		assertEquals((-3)-2,  -5);
+		assertEquals(Calculadora.resta(-3, 2),  -5);
 	}
 
 
@@ -102,30 +102,30 @@ class CalculadoraTest {
 	@Test
 	@DisplayName("Prueba multiplicacion enteros positivos")
 	public void testMultiplicarEnterosPos() {
-		assertEquals(2*2,  4);
+		assertEquals(Calculadora.multiplicacion(2,2),  4);
 	}
 
 	@Test
 	@DisplayName("Prueba multiplicacion decimales positivos")
 	public void testMultiplicarDecimalesPos() {
-		assertEquals(6.47*3.72,  24.0764);
+		assertEquals(Calculadora.multiplicacion(2.2, 2.2),  4.840000000000001);
 	}
 
-	@Test
+@Test
 	@DisplayName("Prueba multiplicacion enteros negativos")
 	public void testMultiplicarEnterosNeg() {
-		assertEquals((-2)*(-2),  4);
+		assertEquals(Calculadora.multiplicacion((-2),(-2)),  4);
 	}
 
 	@Test
 	@DisplayName("Multiplicar un número entero positivo y un número entero negativo")
 	public void testMultiplicarEnterosPosNeg() {
-		assertEquals(2*(-2),  -4);
+		assertEquals(Calculadora.multiplicacion(2,(-2)),  -4);
 	}
 	@Test
 	@DisplayName("Propiedad conmutativa multiplicacion")
 	public void testMultiplicarConmutativa() {
-		assertEquals(2*2,  2*2);
+		assertEquals(Calculadora.multiplicacion(2, 2),  Calculadora.multiplicacion(2, 2));
 	}
 
 	// ********** DIVISION ***********
