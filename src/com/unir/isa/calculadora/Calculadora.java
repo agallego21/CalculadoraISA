@@ -30,30 +30,34 @@ public class Calculadora {
 				//Ejemplo de switch case en Java
 				switch(select){
 				case 1: 
-					System.out.println("\n    SUMA    ");
-					pressToContinue();
+					System.out.println("\n    == SUMA == ");
+					double a=insertNumber(1);
+					double b=insertNumber(2);
+					
+					showResult(suma(a, b));
+					
 					break;
 				case 2: 
-					System.out.println("\n    RESTA    ");
+					System.out.println("\n == RESTA == ");
 					pressToContinue();
 					break;
 				case 3: 
-					System.out.println("\n    MULTIPLICACIÓN    ");
+					System.out.println("\n == MULTIPLICACIÓN == ");
 					pressToContinue();
 					break;
 				case 4: 
-					System.out.println("\n    DIVISIÓN    ");
+					System.out.println("\n == DIVISIÓN == ");
 					pressToContinue();
 					break;
 				case 5: 
-					System.out.println("\n    RAÍZ CUADRADA    ");
+					System.out.println("\n == RAÍZ CUADRADA == ");
 					pressToContinue();
 					break;
 				case 0: 
 					System.out.println("===========================");
 					break;
 				default:
-					System.out.println("\n    Operación no válida.");
+					System.out.println("\n    Operación no válida!!");
 					pressToContinue();
 					break;
 				}
@@ -119,5 +123,21 @@ public class Calculadora {
 		System.out.print("\n    Pulse <Enter> para continuar...");
 		scanner.nextLine();
 	}
+	
+	/**
+	 * Para la ejecución hasta que se pulse una tecla
+	 */
+	private static Double insertNumber(int order){
+		System.out.print("    Introduzca número "+order+":  ");
+		return Double.parseDouble(scanner.nextLine());
+	}
 
+	/**
+	 * Muestra el resultado por pantalla
+	 */
+	private static void showResult(double result){
+		System.out.println("             ------------------------");
+		System.out.println("             Resultado :  "+result);
+		pressToContinue();
+	}
 }
