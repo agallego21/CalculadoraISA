@@ -12,12 +12,12 @@ public class Calculadora {
 	static int select = -1;
 
 	/**
-	 * 
+	 * Método ejecutor de la Calculadora
 	 * @param args
 	 * @throws Exception
 	 */
 	public static void main(String[] args) {
-		
+		double a, b=0;
 		//Continua la ejecución mientras el usuario no pulse 0
 		while(select != 0) {
 			//Try catch para evitar que el programa termine si hay un error
@@ -31,27 +31,36 @@ public class Calculadora {
 				switch(select){
 				case 1: 
 					System.out.println("\n    == SUMA == ");
-					double a=insertNumber(1);
-					double b=insertNumber(2);
+					a=insertNumber(1);
+					b=insertNumber(2);
 					
 					showResult(suma(a, b));
 					
 					break;
 				case 2: 
-					System.out.println("\n == RESTA == ");
-					pressToContinue();
+					System.out.println("\n    == RESTA == ");
+					a=insertNumber(1);
+					b=insertNumber(2);
+					
+					showResult(resta(a, b));
+					
 					break;
 				case 3: 
-					System.out.println("\n == MULTIPLICACIÓN == ");
-					pressToContinue();
+					System.out.println("\n    == MULTIPLICACIÓN == ");
+					a=insertNumber(1);
+					b=insertNumber(2);
+					
+					showResult(multiplicacion(a, b));
+					
 					break;
 				case 4: 
-					System.out.println("\n == DIVISIÓN == ");
-					pressToContinue();
+					System.out.println("\n    == DIVISIÓN == ");
+
+					
 					break;
 				case 5: 
-					System.out.println("\n == RAÍZ CUADRADA == ");
-					pressToContinue();
+					System.out.println("\n    == RAÍZ CUADRADA == ");
+
 					break;
 				case 0: 
 					System.out.println("===========================");
