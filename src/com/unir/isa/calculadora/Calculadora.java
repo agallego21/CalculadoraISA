@@ -28,6 +28,17 @@ public class Calculadora {
 		return i * j;
 	}
 
+	// Comprobar multiplicacion cociente * divisor + resto = dividendo
+	public static Double compruebaMDivision(double i, double j, double k) {
+
+		return (i * j) + k;
+	}
+
+	public static Integer division(int i, int j) {
+
+		return i / j;
+	}
+
     /**
      * Muestra el menú de la calculadora, borrando el contenido de la pantalla
      */

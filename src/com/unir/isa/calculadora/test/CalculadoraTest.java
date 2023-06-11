@@ -128,24 +128,26 @@ class CalculadoraTest {
 		assertEquals(Calculadora.multiplicacion(2, 2),  Calculadora.multiplicacion(2, 2));
 	}
 
-	// ********** DIVISION ***********
+// ********** DIVISION ***********
 
 	@Test
 	@DisplayName("Dividir dos números enteros con resto 0")
 	public void testDividirEnterosPos() {
-		assertEquals(4/2,  2);
+
+		assertEquals(Calculadora.division(4, 2),  2);
 	}
 
 	@Test
 	@DisplayName("Dividir dos números enteros con resto distinto de 0")
 	public void testDividirEnterosPosDis() {
-		assertEquals(5/2,  2.5);
+		assertEquals(Calculadora.division(5, 2),  2);
 	}
 
 	@Test
 	@DisplayName("Comprobar resultado dividendo (cociente * divisor + resto = dividendo)")
 	public void testComprobarDiv() {
-		assertEquals(5*3+0,  15);
+
+		assertEquals(Calculadora.compruebaMDivision(5, 3, 0),  15);
 	}
 
 	// ********** RAIZ CUADRADA ***********
