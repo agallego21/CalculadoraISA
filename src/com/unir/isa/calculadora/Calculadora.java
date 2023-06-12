@@ -37,7 +37,6 @@ public class Calculadora {
 					b=insertNumber(2);
 					
 					showResult(suma(a, b));
-					
 					break;
 				case 2: 
 					System.out.println("\n    == RESTA == ");
@@ -45,7 +44,6 @@ public class Calculadora {
 					b=insertNumber(2);
 					
 					showResult(resta(a, b));
-					
 					break;
 				case 3: 
 					System.out.println("\n    == MULTIPLICACIÓN == ");
@@ -53,16 +51,19 @@ public class Calculadora {
 					b=insertNumber(2);
 					
 					showResult(multiplicacion(a, b));
-					
 					break;
 				case 4: 
 					System.out.println("\n    == DIVISIÓN == ");
-
+					a=insertNumber(1);
+					b=insertNumber(2);
 					
+					showResult(division(a, b));
 					break;
 				case 5: 
 					System.out.println("\n    == RAÍZ CUADRADA == ");
-
+					a=insertNumber(1);
+					
+					showResult(calcularRaizCuadrada(a));
 					break;
 				case 0: 
 					System.out.println("===========================");
@@ -74,7 +75,8 @@ public class Calculadora {
 				}
 				
 			} catch(Exception e) { 
-				System.out.println("  Se ha producido un error, por favor, pulse una tecla para continuar...");
+				System.out.println("\n  ERROR: "+e.getMessage());
+				pressToContinue();
 			}
 		}
 
@@ -88,7 +90,9 @@ public class Calculadora {
 
 	public static Double resta(double i, double j) {
 
-		return i - j;
+		return BigDecimal.valueOf(i-j)
+        	    .setScale(3, RoundingMode.HALF_UP)
+        	    .doubleValue();
 	}
 
 	public static Double multiplicacion(double i, double j) {
@@ -104,7 +108,9 @@ public class Calculadora {
 
 	public static Double division(double i, double j) {
 
-		return i / j;
+		return BigDecimal.valueOf(i/j)
+        	    .setScale(3, RoundingMode.HALF_UP)
+        	    .doubleValue();
 	}
 
 	// Método para calcular la diferencia absoluta
@@ -123,19 +129,17 @@ public class Calculadora {
         double diferencia;
         do {
             // Mejora de la estimación
-            double nuevaEstimacion = division((division(suma(estimacion, numero), estimacion)), 2);
+            double nuevaEstimacion = 
+            		division(suma(estimacion,division(numero, estimacion)),2);
             diferencia = diferenciaAbsoluta(nuevaEstimacion, estimacion);
             estimacion = nuevaEstimacion;
             
-        } while (diferencia > 1e-3); // 1e-3 es el umbral de precisión
+        } while (diferencia > 1e-10); // 1e-3 es el umbral de precisión
 
         return BigDecimal.valueOf(estimacion)
         	    .setScale(3, RoundingMode.HALF_UP)
         	    .doubleValue();		//Redondeamos a tres decimales
     }
-
-
-
 	
 
     /**

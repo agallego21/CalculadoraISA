@@ -61,7 +61,7 @@ class CalculadoraTest {
 	@Test
 	@DisplayName("Prueba resta decimales positivos")
 	public void testRestarDecimalesPos() {
-		assertEquals(Calculadora.resta(6.11, 3.11),  3.0000000000000004);
+		assertEquals(Calculadora.resta(6.11, 3.11),  3.00);
 	}
 
 	@Test
@@ -73,12 +73,12 @@ class CalculadoraTest {
 	@Test
 	@DisplayName("Prueba resta decimales negativos")
 	public void testRestarDecimalesNeg() {
-		assertEquals(Calculadora.resta((-6.47),(-3.72)),  -2.7499999999999996);
+		assertEquals(Calculadora.resta((-6.47),(-3.72)),  -2.75);
 	}
 
 
 
-@Test
+	@Test
 	@DisplayName("Restar un número positivo a un número positivo menor")
 	public void testRestarEnterosPosPosMen() {
 		assertEquals(Calculadora.resta(3, 2),  1);
@@ -111,7 +111,7 @@ class CalculadoraTest {
 		assertEquals(Calculadora.multiplicacion(2.2, 2.2),  4.840000000000001);
 	}
 
-@Test
+	@Test
 	@DisplayName("Prueba multiplicacion enteros negativos")
 	public void testMultiplicarEnterosNeg() {
 		assertEquals(Calculadora.multiplicacion((-2),(-2)),  4);
