@@ -109,7 +109,7 @@ public class Calculadora {
 
 	// Método para calcular la diferencia absoluta
     private static double diferenciaAbsoluta(double a, double b) {
-        return a > b ? a - b : b - a;
+        return a > b ? resta(a, b) : resta(b, a);
     }
 
     // Método para calcular la raíz cuadrada utilizando el Método de Herón
@@ -119,11 +119,11 @@ public class Calculadora {
         }
 
         // Estimación inicial
-        double estimacion = numero / 2.0;
+        double estimacion = division(numero, 2);
         double diferencia;
         do {
             // Mejora de la estimación
-            double nuevaEstimacion = (estimacion + numero / estimacion) / 2.0;
+            double nuevaEstimacion = division((division(suma(estimacion, numero), estimacion)), 2);
             diferencia = diferenciaAbsoluta(nuevaEstimacion, estimacion);
             estimacion = nuevaEstimacion;
             
