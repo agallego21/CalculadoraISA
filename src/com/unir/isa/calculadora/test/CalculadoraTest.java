@@ -140,7 +140,7 @@ class CalculadoraTest {
 	@Test
 	@DisplayName("Dividir dos números enteros con resto distinto de 0")
 	public void testDividirEnterosPosDis() {
-		assertEquals(Calculadora.division(5, 2),  2);
+		assertEquals(Calculadora.division(5, 2),  2,5);
 	}
 
 	@Test
@@ -150,23 +150,23 @@ class CalculadoraTest {
 		assertEquals(Calculadora.compruebaMDivision(5, 3, 0),  15);
 	}
 
-	// ********** RAIZ CUADRADA ***********
+// ********** RAIZ CUADRADA *********** 
 	@Test
 	@DisplayName("Raíz cuadrada exacta de un número positivo")
 	public void testRaizCuadrada() {
-		assertEquals(2,  4); // a**2 = b
+		assertEquals(Calculadora.calcularRaizCuadrada(9),  3); // a**2 = b
 	}
 
 	@Test
 	@DisplayName("Raíz cuadrada inexacta de un número positivo")
 	public void testRaizCuadradaIne() {
-		assertEquals(3,  1,732050808);
+		assertEquals(Calculadora.calcularRaizCuadrada(3),  1,732050808);
 	}
 
 	@Test
 	@DisplayName("Comprobar resultado raiz cuadrada (raiz cuadrada * raiz cuadrada = numero) raiz(4)*raiz(4)=4")
 	public void testComprobarRaiz() {
-		assertEquals(2*2,  4);
+		assertEquals(Calculadora.multiplicacion(2,2),  Calculadora.multiplicacion(Calculadora.calcularRaizCuadrada(4), Calculadora.calcularRaizCuadrada(4)));
 	}
 
 }

@@ -1,6 +1,8 @@
 package com.unir.isa.calculadora;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Scanner;
 
 /** 
@@ -100,10 +102,41 @@ public class Calculadora {
 		return (i * j) + k;
 	}
 
-	public static Integer division(int i, int j) {
+	public static Double division(double i, double j) {
 
 		return i / j;
 	}
+
+	// Método para calcular la diferencia absoluta
+    private static double diferenciaAbsoluta(double a, double b) {
+        return a > b ? a - b : b - a;
+    }
+
+    // Método para calcular la raíz cuadrada utilizando el Método de Herón
+    public static double calcularRaizCuadrada(double numero) throws IllegalArgumentException {
+        if (numero < 0) {
+            throw new IllegalArgumentException("El número no puede ser negativo");
+        }
+
+        // Estimación inicial
+        double estimacion = numero / 2.0;
+        double diferencia;
+        do {
+            // Mejora de la estimación
+            double nuevaEstimacion = (estimacion + numero / estimacion) / 2.0;
+            diferencia = diferenciaAbsoluta(nuevaEstimacion, estimacion);
+            estimacion = nuevaEstimacion;
+            
+        } while (diferencia > 1e-3); // 1e-3 es el umbral de precisión
+
+        return BigDecimal.valueOf(estimacion)
+        	    .setScale(3, RoundingMode.HALF_UP)
+        	    .doubleValue();		//Redondeamos a tres decimales
+    }
+
+
+
+	
 
     /**
      * Muestra el menú de la calculadora, borrando el contenido de la pantalla
